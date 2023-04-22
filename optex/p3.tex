@@ -1,0 +1,19 @@
+Suppose we have no constraint inequalities $f_i$ and the objective function $f_0$ is differentiable. Then $x \in X$ is optimal if and only if:
+
+\begin{equation}
+    \nabla f_0 (x)= 0
+\end{equation}
+%
+Take as an example the \textit{unconstrained quadratic optimization}:
+
+\begin{equation}
+    \begin{aligned}
+        \text{minimize} & \quad f_0(x) = \frac{1}{2} x^T P x + q^T x + r\\
+    \end{aligned}
+\end{equation}
+%
+where $P \in \mathbf{S}_+^n$. The optimality condition gives:
+
+\begin{equation}
+    \nabla f_0(x) = P x + q = 0
+\end{equation}

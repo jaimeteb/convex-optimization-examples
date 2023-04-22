@@ -1,0 +1,17 @@
+A \textit{convex optimization problem} can be stated as
+
+\begin{equation}
+    \begin{aligned}
+        \text{minimize} \quad& f_0(x) \quad& \\
+        \text{subject to} \quad& f_i(x) \leq 0, \quad& i = 1,\ldots,m \\
+        \quad& a_i^T x=b_i, \quad& i = 1,\ldots,p, \\
+    \end{aligned}
+\end{equation}
+
+where the function $f_0(x)$ and the inequality constraints $f_i(x)$ are convex, and the equality constraint must be affine.
+
+The feasible set is convex because it is the intersection of of the domain of the constraints, which are convex. 
+
+\begin{equation}
+    D = \bigcap_i^m \textbf{dom} f_i
+\end{equation}
