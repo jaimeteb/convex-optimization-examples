@@ -1,0 +1,21 @@
+If we consider a problem like
+
+\begin{equation}
+    \begin{aligned}
+        \text{minimize} \quad & f_0(x) \\
+        \text{subject to} \quad & x \succeq 0
+    \end{aligned}
+\end{equation}
+%
+where the only constraint is the nonnegativity of $x$. The feasible set is the nonnegative orthant. The optimality condition for $x \succeq 0, x \in X$ is
+
+% \begin{equation}
+%     \nabla f_0(x) \succeq 0, \quad x_i(\nabla f_0(x))_i=0, \quad i=1,\ldots,n
+% \end{equation}
+
+\begin{equation}
+    \begin{cases}
+        \nabla f_0(x)_i \geq 0 & x_i=0 \\
+        \nabla f_0(x)_i = 0 & x_i>0 \\
+    \end{cases}
+\end{equation}

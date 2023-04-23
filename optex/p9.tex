@@ -1,0 +1,31 @@
+We can obtain \textbf{equivalent} convex problems using transformations that preserve convexity.
+
+\begin{center}
+    \begin{tabular}{|cc|cc|}
+        \hline
+        \multicolumn{2}{|c|}{Original} & \multicolumn{2}{|c|}{Equivalent} \\
+        \hline
+        minimize & $f_0(x)$ & minimize (over $z$) & $f_0(Fz+x_0)$ \\
+        subject to& $f_i(x)\leq 0$ & subject to & $f_i(Fz+x_0)$ \\
+        & $Ax=b$ & \multicolumn{2}{c|}{$Ax+b \iff x=Fz+x_0$}\\
+        \hline
+        minimize & $f_0(A_0x+b_0)$ & minimize (over $x,y_i$) & $f_0(y_0)$ \\
+        subject to& $f_i(A_ix+b_i)\leq 0$ & subject to & $f_i(y_i)\leq 0$ \\
+        & & & $y_i=A_ix+b_i$ \\
+        \hline
+        minimize & $f_0(x)$ & minimize (over $x,s$) & $f_0(x)$ \\
+        subject to& $a_i^Tx\leq b_i$ & subject to & $a_i^Tx+s_i=b_i$ \\
+        & & & $s_i\geq0$ \\
+        \hline
+        minimize & $f_0(x)$ & minimize (over $x,t$) & $t$ \\
+        subject to& $f_i(x)\leq0$ & subject to & $f_0(x)-t\leq0$ \\
+        & $a_i^Tx=b_i$ & & $f_i(x)\leq0$ \\
+        & & & $Ax=b$ \\
+        \hline
+        minimize & $f_0(x_1,x_2)$ & minimize & $\tilde{f}_0(x_1)$ \\
+        subject to& $f_i(x_1)\leq0$ & subject to & $f_i(x_1)\leq0$ \\
+        & & \multicolumn{2}{c|}{$\tilde{f}_0(x_1)=\inf_{x_2}{f_0(x_1,x_2)}$}\\
+        \hline
+    \end{tabular}
+\end{center}
+%

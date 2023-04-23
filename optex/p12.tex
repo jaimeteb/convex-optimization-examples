@@ -1,0 +1,22 @@
+For example, YOLO is a convolutional neural network for object detection. It is trained using the following loss function
+
+\begin{equation}
+    \begin{split}
+        L=
+        &= \lambda_{\text{coord}}
+        \sum_{i=0}^{S^2}\sum_{i=0}^{B}\mathbf{1}_{ij}^{\text{obj}}
+        \left[(x_i-\hat{x}_i)^2+(y_i-\hat{y}_i)^2\right] \\
+        &+ \lambda_{\text{coord}}
+        \sum_{i=0}^{S^2}\sum_{i=0}^{B}\mathbf{1}_{ij}^{\text{obj}}
+        \left[(\sqrt{w_i}-\sqrt{\hat{w}_i})^2+(\sqrt{h_i}-\sqrt{\hat{h}_i})^2\right] \\
+        &+ \sum_{i=0}^{S^2}\sum_{i=0}^{B}\mathbf{1}_{ij}^{\text{obj}}
+        \left(C_i-\hat{C}_i\right)^2\\
+        &+ \lambda_{\text{noobj}}
+        \sum_{i=0}^{S^2}\sum_{i=0}^{B}\mathbf{1}_{ij}^{\text{noobj}}
+        \left(C_i-\hat{C}_i\right)^2\\
+        &+ \sum_{i=0}^{S^2}\mathbf{1}_{i}^{\text{obj}}\sum_{c\in \text{classes}}
+        (p_i(c)-\hat{p}_i(c))^2 \\
+    \end{split}
+\end{equation}
+%
+where $\hat{x}, \hat{y}, \hat{w}, \hat{h}, \hat{c}$ are the output from the convolutional neural network. This is a modified mean squared error loss function, which is convex.

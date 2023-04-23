@@ -1,0 +1,16 @@
+If we have only equality constraints
+
+\begin{equation}
+    \begin{aligned}
+        \text{minimize} \quad & f_0(x) \\
+        \text{subject to} \quad & Ax=b
+    \end{aligned}
+\end{equation}
+%
+the feasible set is affine. The optimality condition for $x \in X$ is
+
+\begin{equation}
+    \exists\nu\in\mathbb{R}^p \quad s.t. \quad \nabla f_0(x) + A^T\nu = 0 \quad \text{and} \quad Ax=b
+\end{equation}
+%
+which is the Lagrange multiplier optimality condition, also known as the Karush-Kuhn-Tucker (KKT) condition.

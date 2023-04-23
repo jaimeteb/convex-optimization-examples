@@ -1,0 +1,32 @@
+We can visualize this in two dimensions in the following figure:
+
+\begin{center}
+    \begin{tikzpicture}[scale=1.0]
+        \begin{axis}[
+            axis lines=middle,
+            xlabel=$x$,
+            ylabel=$y$,
+            xmin=-5, xmax=5,
+            ymin=-2, ymax=20,
+            % xtick={-2, -1, 0, 1, 2},
+            % ytick={-2, 2, 4, 6, 8, 10},
+            ticklabel style={font=\tiny},
+            enlargelimits=true,
+            thick]
+
+            % Quadratic function
+            \addplot[color=black, domain=-5:5, samples=101] {x^2 - 2*x + 2};
+            \node[label={-45:{$y=x^2 - 2x + 2$}}] at (axis cs:-6,5.5) {};
+            
+            % Equality constraint
+            \addplot[color=black, domain=-5:5, samples=101] {2*x + 2};
+            \node[label={-45:{$y=2x+2$}}] at (axis cs:-6.5,-1.5) {};
+            
+            % Derivative function
+            \addplot[color=black, domain=-5:5, samples=101] {2*x - 2};
+            \node[label={-45:{$y=2x-2$}}] at (axis cs:0,-1.5) {};
+
+            \filldraw[black] (0,2) circle (2pt);
+        \end{axis}
+    \end{tikzpicture}
+\end{center}

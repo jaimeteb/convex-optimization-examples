@@ -1,0 +1,21 @@
+Training a neural network can be posed as a convex optimization problem. 
+
+\begin{equation}
+    \begin{aligned}
+        \text{minimize} \quad& L(y; \hat{y}) \\
+        % \text{subject to} \quad& \mathbf{w} \in \mathbb{R}^d
+    \end{aligned}
+\end{equation}
+%
+where $L(y; \hat{y})$ is the loss function, $y$ is the ground truth, and $\hat{y}$ is the prediction. The prediction is given by the neural network, which is a function of the weights $W$ and the input $x$. If we consider a network of one layer, the prediction is given by
+
+\begin{equation}
+    \hat{y} = \sigma(Wx)
+\end{equation}
+%
+where $\sigma$ is the activation function. For this problem to be convex we need the loss function to be convex. We can consider the following loss functions:
+\begin{itemize}
+    \item \textbf{Mean squared error (MSE)}: $L(y; \hat{y}) = \frac{1}{2} (y - \hat{y})^2$
+    \item \textbf{Cross-entropy loss}: $L(y; \hat{y}) = -y \log(\hat{y}) - (1 - y) \log(1 - \hat{y})$
+    \item \textbf{Hinge loss}: $L(y; \hat{y}) = \max(0, 1 - y \hat{y})$
+\end{itemize}

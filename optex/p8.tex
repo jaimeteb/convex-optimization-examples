@@ -1,0 +1,36 @@
+We can visualize this in two dimensions in the following figure:
+
+\begin{center}
+    \begin{tikzpicture}[scale=1.0]
+        \pgfdeclarelayer{background}
+        \pgfdeclarelayer{foreground}
+        \pgfsetlayers{background,main,foreground}
+
+        \begin{axis}[
+            axis lines=middle,
+            xlabel=$x$,
+            ylabel=$y$,
+            xmin=-3, xmax=3,
+            ymin=-1, ymax=10,
+            % xtick={-2, -1, 0, 1, 2},
+            % ytick={-2, 2, 4, 6, 8, 10},
+            ticklabel style={font=\tiny},
+            enlargelimits=true,
+            thick]
+
+            \begin{pgfonlayer}{background}
+                \fill[gray!20] (0,0) rectangle (3,10);
+            \end{pgfonlayer}
+
+            % Quadratic function
+            \addplot[color=black, domain=-3:3, samples=101] {x^2 + 2*x + 2};
+            \node[label={-45:{$y=x^2 + 2x + 2$}}] at (axis cs:-3,6) {};
+            
+            % Derivative function
+            \addplot[color=black, domain=-3:3, samples=101] {2*x + 2};
+            \node[label={-45:{$y=2x+2$}}] at (axis cs:1,4.5) {};
+
+            \filldraw[black] (0,2) circle (2pt);
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
