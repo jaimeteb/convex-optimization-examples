@@ -1,22 +1,24 @@
-For example, YOLO is a convolutional neural network for object detection. It is trained using the following loss function
+We can illustrate an example with the \textit{perceptron learning algorithm}. In this example we have a single neuron with two inputs, $x_1$ and $x_2$, and one output, $y$. The neuron has two weights, $w_1$ and $w_2$, and one bias, $b$. The neuron is activated by the hard limit function $\text{hardlim}(x)$, which is defined as
 
 \begin{equation}
-    \begin{split}
-        L=
-        &= \lambda_{\text{coord}}
-        \sum_{i=0}^{S^2}\sum_{i=0}^{B}\mathbf{1}_{ij}^{\text{obj}}
-        \left[(x_i-\hat{x}_i)^2+(y_i-\hat{y}_i)^2\right] \\
-        &+ \lambda_{\text{coord}}
-        \sum_{i=0}^{S^2}\sum_{i=0}^{B}\mathbf{1}_{ij}^{\text{obj}}
-        \left[(\sqrt{w_i}-\sqrt{\hat{w}_i})^2+(\sqrt{h_i}-\sqrt{\hat{h}_i})^2\right] \\
-        &+ \sum_{i=0}^{S^2}\sum_{i=0}^{B}\mathbf{1}_{ij}^{\text{obj}}
-        \left(C_i-\hat{C}_i\right)^2\\
-        &+ \lambda_{\text{noobj}}
-        \sum_{i=0}^{S^2}\sum_{i=0}^{B}\mathbf{1}_{ij}^{\text{noobj}}
-        \left(C_i-\hat{C}_i\right)^2\\
-        &+ \sum_{i=0}^{S^2}\mathbf{1}_{i}^{\text{obj}}\sum_{c\in \text{classes}}
-        (p_i(c)-\hat{p}_i(c))^2 \\
-    \end{split}
+    \text{hardlim}(x) = \begin{cases}
+        1 & x \geq 0 \\
+        0 & x < 0
+    \end{cases}
 \end{equation}
 %
-where $\hat{x}, \hat{y}, \hat{w}, \hat{h}, \hat{c}$ are the output from the convolutional neural network. This is a modified mean squared error loss function, which is convex.
+The perceptron output is given by
+
+\begin{equation}
+    y = \text{hardlim}(Wx+b) = \text{hardlim}(w_1x_1+w_2x_2+b)
+\end{equation}
+%
+We can use binary cross entropy loss function to train the perceptron. We then have the following optimization problem
+
+\begin{equation}
+    \begin{aligned}
+        \text{minimize over $w_1,w_2,b$} &\quad \sum_{i=1}^N \left(-y_i\log(\hat{y}_i) - (1-y_i)\log(1-\hat{y}_i)\right) \\
+        \text{subject to} &\quad \hat{y}_i = \text{hardlim}(w_1x_{i1}+w_2x_{i2}+b) \\
+        &\quad w_1,w_2,b \in \mathbb{R}
+    \end{aligned}
+\end{equation}
